@@ -16,7 +16,8 @@ library(tidyverse)
 
 Para instalar los paquetes necesarios, ejecute esta línea: 
 ```R
-install.packages(c("doMC", "ggplot2", "glmnet", "gridExtra", "parallel", "pROC", "randomForest", "readr", "tidyverse"))```
+install.packages(c("doMC", "ggplot2", "glmnet", "gridExtra", "parallel", "pROC", "randomForest", "readr", "tidyverse"))
+```
 
 ## 2. PREPARACIÓN DE DATOS. 
 
