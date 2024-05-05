@@ -64,6 +64,25 @@ lambdas.df <- data.frame(Run = runs,
 
 ## 3. RESULTADOS. 
 
+El siguiente código se utiliza para ver el orden de importancia de las variables: 
+
+```R
+# Fuerza el gráfico para mantener el orden de importancia. 
+variable.importance$Number <- factor(variable.importance$Number, levels=variable.importance$Number) 
+
+variable.importance_ELN   <- variable.importance[order(abs(variable.importance$ElNet), decreasing = TRUE),]
+variable.importance_ELN
+
+variable.importance_L   <- variable.importance[order(abs(variable.importance$Lasso), decreasing = TRUE),]
+variable.importance_L
+
+variable.importance_R   <- variable.importance[order(abs(variable.importance$Ridge), decreasing = TRUE),]
+variable.importance_R
+
+variable.importance_RF   <- variable.importance[order(abs(variable.importance$MeanDecreaseGini), decreasing = TRUE),]
+variable.importance_RF
+```
+
 Crea varios gráficos y matrices para visualizar los resultados, incluyendo gráficos de caja para los valores`AUC` y gráficos de barras para los coeficientes estandarizados de los modelos.
 
 ```R
