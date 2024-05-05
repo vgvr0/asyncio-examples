@@ -61,7 +61,20 @@ lambdas.df <- data.frame(Run = runs,
                          Lasso = rep(0,runs),
                          Ridge = rep(0,runs))
 ```
-
+Uso de validación cruzada: 
+```R
+  # Elastic Net
+  elnet.start <- proc.time()
+  elnet.cv    <- cv.glmnet(X.train, Y.train,
+                           parallel     = TRUE, 
+                           family       = "binomial",
+                           alpha        = elnet.alpha, 
+                           type.measure = "auc")
+  elnet.end   <- proc.time()
+  elnet.time  <- elnet.end[3]-elnet.start[3]
+  cat("Tarda", elnet.time, "segundos, en la iteración", i, "\n")
+  times$ElNet[i]  <- elnet.time
+```
 ## 3. RESULTADOS. 
 
 El siguiente código se utiliza para ver el orden de importancia de las variables: 
