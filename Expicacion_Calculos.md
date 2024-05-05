@@ -61,6 +61,17 @@ lambdas.df <- data.frame(Run = runs,
                          Lasso = rep(0,runs),
                          Ridge = rep(0,runs))
 ```
+Partición de entrenamiento y test: 
+```R
+  ##### Partición Training Data #####
+  writeLines("Particionando datos Training")
+  X.train = data.X[train.indices,]
+  Y.train = data.Y[train.indices]
+  
+  writeLines("Particionando datos Test")
+  X.test = data.X[test.indices,]
+  Y.test = data.Y[test.indices]
+```
 Uso de validación cruzada: 
 ```R
   # Elastic Net
