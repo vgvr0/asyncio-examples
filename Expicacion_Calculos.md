@@ -13,6 +13,11 @@ library(randomForest)
 library(readr)
 library(tidyverse)
 ```
+
+Para instalar los paquetes necesarios, ejecute esta línea: 
+```R
+install.packages(c("doMC", "ggplot2", "glmnet", "gridExtra", "parallel", "pROC", "randomForest", "readr", "tidyverse"))```
+
 ## 2. PREPARACIÓN DE DATOS. 
 
 Lee un conjunto de datos de un archivo CSV, convierte todas las variables en factores y luego utiliza model.matrix para expandir y codificar las variables categóricas. También se crea un conjunto de datos completo para usar con Random Forest.
