@@ -67,8 +67,20 @@ lambdas.df <- data.frame(Run = runs,
 Crea varios gráficos y matrices para visualizar los resultados, incluyendo gráficos de caja para los valores`AUC` y gráficos de barras para los coeficientes estandarizados de los modelos.
 
 ```R
-long.df.auc %>% ggplot(aes(x=Model, y = AUC, color = Model)) + geom_boxplot() + facet_wrap(~Sample)
+# Crea gráficos y cuadrículas
 elnetPlot = variable.importance %>% ggplot(aes(x = Number, y = ElNet)) +
   geom_bar(stat = "identity", fill="white", colour="#FF0000") +
   labs(title = "Standardized Elastic Net Coefficients", x = "Variable", y = "Coefficient") + theme(axis.title.x=element_blank(), axis.text.x=element_blank(),axis.ticks.x=element_blank())
+
+lassoPlot = variable.importance %>% ggplot(aes(x = Number, y = Lasso))  +
+  geom_bar(stat = "identity", fill="white", colour="#70AD47") +
+  labs(title = "Standardized Lasso Coefficients", x = "Variable", y = "Coefficient") + theme(axis.title.x=element_blank(), axis.text.x=element_blank(),axis.ticks.x=element_blank())
+
+ridgePlot = variable.importance %>% ggplot(aes(x = Number, y = Ridge)) +
+  geom_bar(stat = "identity", fill="white", colour="#CC04C2") +
+  labs(title = "Standardized Ridge Coefficients", x = "Variable", y = "Coefficient") + theme(axis.title.x=element_blank(), axis.text.x=element_blank(),axis.ticks.x=element_blank())
+
+rfPlot = variable.importance %>% ggplot(aes(x = Number, y = MeanDecreaseGini)) +
+  geom_bar(stat = "identity", fill="white", colour="#02C9CE") +
+  labs(title = "Random Forrest Variable Importance", x = "Variable", y = "Importance") + theme(axis.title.x=element_blank(), axis.text.x=element_blank(),axis.ticks.x=element_blank() )
 ```
