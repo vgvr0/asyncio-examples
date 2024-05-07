@@ -21,7 +21,7 @@ install.packages(c("doMC", "ggplot2", "glmnet", "gridExtra", "parallel", "pROC",
 
 ## 2. PREPARACIÓN DE DATOS. 
 
-Lee un conjunto de datos de un archivo `CSV`, convierte todas las variables en factores y luego utiliza `model.matrix` para expandir y codificar las variables categóricas. Se crea `data.X` excluyendo la columna 86 (columna de la variable de respuesta, CARAVAN).
+Lee un conjunto de datos de un archivo `CSV`, convierte todas las variables en factores y luego utiliza `model.matrix` para expandir y codificar las variables categóricas. Se crea `data.X` excluyendo la columna 86 (variable a predecir, CARAVAN).
 Finalmente, se crea un nuevo dataframe `data.full` que contiene todas las variables explicativas codificadas, junto con la variable de respuesta `CARAVAN`, que se agrega como una columna al final.
 ```R
 data <- read_csv("caravan-insurance-challenge.csv") %>% as.data.frame()
