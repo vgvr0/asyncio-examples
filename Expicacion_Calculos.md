@@ -115,7 +115,7 @@ variable.importance_RF   <- variable.importance[order(abs(variable.importance$Me
 variable.importance_RF
 ```
 
-Crea varios gráficos y matrices para visualizar los resultados, incluyendo gráficos de caja para los valores`AUC` y gráficos de barras para los coeficientes estandarizados de los modelos.
+Finalmente, se crean varios gráficos y matrices para visualizar los resultados, incluyendo boxplot para los valores `AUC` y gráficos de barras para los coeficientes estandarizados de los modelos.
 
 ```R
 # Crea gráficos y cuadrículas
