@@ -73,7 +73,9 @@ Partición de entrenamiento y test:
   X.test = data.X[test.indices,]
   Y.test = data.Y[test.indices]
 ```
-se realiza la validación cruzada. Los argumentos `X.train` y `Y.train` son los predictores y la variable de respuesta respectivamente para el conjunto de entrenamiento. Con `parallel = TRUE` se indica que el ajuste del modelo se realizará en paralelo, lo que puede acelerar el proceso en sistemas con múltiples núcleos de CPU. 
+### Validación cruzada. 
+
+Los argumentos `X.train` y `Y.train` son los predictores y la variable de respuesta respectivamente para el conjunto de entrenamiento. Con `parallel = TRUE` se indica que el ajuste del modelo se realizará en paralelo, lo que puede acelerar el proceso en sistemas con múltiples núcleos de CPU. El ejemplo se muestra para `Elastic Net`y se realiza con todos los modelos.
 
 `family = "binomial"` especifica que se está realizando un modelo de regresión logística para una variable de respuesta binaria. 
 `alpha = elnet.alpha` especifica el parámetro de mezcla para `Elastic Net`. 
