@@ -21,7 +21,8 @@ install.packages(c("doMC", "ggplot2", "glmnet", "gridExtra", "parallel", "pROC",
 
 ## 2. PREPARACIÓN DE DATOS. 
 
-Lee un conjunto de datos de un archivo `CSV`, convierte todas las variables en factores y luego utiliza `model.matrix` para expandir y codificar las variables categóricas.
+Lee un conjunto de datos de un archivo `CSV`, convierte todas las variables en factores y luego utiliza `model.matrix` para expandir y codificar las variables categóricas. Se crea `data.X` excluyendo la columna 86 (columna de la variable de respuesta, CARAVAN).
+Finalmente, se crea un nuevo dataframe `data.full` que contiene todas las variables explicativas codificadas, junto con la variable de respuesta `CARAVAN`, que se agrega como una columna al final.
 ```R
 data <- read_csv("caravan-insurance-challenge.csv") %>% as.data.frame()
 data.X <- data[,-86] 
@@ -72,7 +73,12 @@ Partición de entrenamiento y test:
   X.test = data.X[test.indices,]
   Y.test = data.Y[test.indices]
 ```
-Uso de validación cruzada: 
+se realiza la validación cruzada. Los argumentos `X.train` y `Y.train` son los predictores y la variable de respuesta respectivamente para el conjunto de entrenamiento. Con `parallel = TRUE` se indica que el ajuste del modelo se realizará en paralelo, lo que puede acelerar el proceso en sistemas con múltiples núcleos de CPU. 
+
+`family = "binomial"` especifica que se está realizando un modelo de regresión logística para una variable de respuesta binaria. 
+`alpha = elnet.alpha` especifica el parámetro de mezcla para `Elastic Net`. 
+`type.measure = "auc"` indica que la métrica de evaluación utilizada durante la validación cruzada es el área bajo la curva (AUC).
+
 ```R
   # Elastic Net
   elnet.start <- proc.time()
