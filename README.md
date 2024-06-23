@@ -1,5 +1,7 @@
 # Ejemplos de Asyncio en Python
 
+![Asyncio](asyncio.jpg)
+
 Este repositorio contiene varios ejemplos de cómo usar la biblioteca asyncio en Python. Asyncio es una biblioteca para escribir código concurrente utilizando la sintaxis async/await.
 
 ## Características
